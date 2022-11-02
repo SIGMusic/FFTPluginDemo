@@ -133,19 +133,8 @@ void SIGMusicFFTDemoAudioProcessor::pushNextSampleIntoFifo (float sample) noexce
 {
     // if the fifo contains enough data, set a flag to say
     // that the next frame should now be rendered..
-    if (fifoIndex == fftSize)               // [11]
-    {
-        if (!nextFFTBlockReady)            // [12]
-        {
-            juce::zeromem (fftData, sizeof (fftData));
-            memcpy (fftData, fifo, sizeof (fifo));
-            nextFFTBlockReady = true;
-        }
 
-        fifoIndex = 0;
-    }
-
-    fifo[fifoIndex++] = sample;             // [12]
+    // TODO
 }
 
 void SIGMusicFFTDemoAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
@@ -156,7 +145,7 @@ void SIGMusicFFTDemoAudioProcessor::processBlock (juce::AudioBuffer<float>& buff
         auto* channelData = buffer.getReadPointer (0);
 
         for (auto i = 0; i < buffer.getNumSamples(); ++i)
-            pushNextSampleIntoFifo (channelData[i]);
+            (void) i; // TODO
     }
 }
 

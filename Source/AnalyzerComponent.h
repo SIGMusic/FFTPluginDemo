@@ -51,10 +51,10 @@ public:
     void drawNextFrameOfSpectrum()
     {
         // first apply a windowing function to our data
-        window.multiplyWithWindowingTable (ap.fftData, ap.fftSize);       // [1]
+        // TODO
 
         // then render our FFT data..
-        forwardFFT.performFrequencyOnlyForwardTransform (ap.fftData);  // [2]
+        // TODO
 
         auto mindB = -100.0f;
         auto maxdB =    0.0f;
